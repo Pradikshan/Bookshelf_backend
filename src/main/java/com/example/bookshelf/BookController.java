@@ -20,8 +20,13 @@ public class BookController {
     }
 
     @PostMapping
-    public ResponseEntity<Book> createBook(@RequestBody Book book) {
-        return new ResponseEntity<Book>(bookService.createBook(book), HttpStatus.CREATED);
+    public ResponseEntity<?> createBook(@RequestBody Book book) {
+        try {
+            Book createdBook = bookService.createBook(book);
+            return new ResponseEntity<>(createdBook, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error creating book: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @DeleteMapping
