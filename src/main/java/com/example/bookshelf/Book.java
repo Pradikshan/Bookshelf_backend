@@ -4,17 +4,19 @@ import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.List;
+
 @Document("books")
 public class Book {
     private String id;
     private String title;
-    private String authors;
+    private List<String> authors;
     private String description;
     private String publisher;
     private String publishedDate;
     private Integer pageCount;
-    private String categories;
-    private String thumbnail;
+    private List<String> categories;
+    private String image;
 
     //    private ObjectId id;
 //    private String title;
@@ -26,7 +28,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(String id, String title, String authors, String description, String publisher, String publishedDate, Integer pageCount, String categories, String thumbnail) {
+    public Book(String id, String title, List<String> authors, String description, String publisher, String publishedDate, Integer pageCount, List<String> categories, String image) {
         this.id = id;
         this.title = title;
         this.authors = authors;
@@ -35,7 +37,7 @@ public class Book {
         this.publishedDate = publishedDate;
         this.pageCount = pageCount;
         this.categories = categories;
-        this.thumbnail = thumbnail;
+        this.image = image;
     }
 
 
@@ -55,12 +57,20 @@ public class Book {
         this.title = title;
     }
 
-    public String getAuthors() {
+    public List<String> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(String authors) {
+    public void setAuthors(List<String> authors) {
         this.authors = authors;
+    }
+
+    public List<String> getCategories() {
+        return categories;
+    }
+
+    public void setCategories(List<String> categories) {
+        this.categories = categories;
     }
 
     public String getDescription() {
@@ -95,19 +105,12 @@ public class Book {
         this.pageCount = pageCount;
     }
 
-    public String getCategories() {
-        return categories;
+
+    public String getImage() {
+        return image;
     }
 
-    public void setCategories(String categories) {
-        this.categories = categories;
-    }
-
-    public String getThumbnail() {
-        return thumbnail;
-    }
-
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setImage(String image) {
+        this.image = image;
     }
 }
