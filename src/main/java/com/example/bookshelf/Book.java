@@ -18,6 +18,8 @@ public class Book {
     private List<String> categories;
     private String image;
 
+    private String status;
+
     //    private ObjectId id;
 //    private String title;
 //    private String author;
@@ -28,7 +30,7 @@ public class Book {
     public Book() {
     }
 
-    public Book(String id, String title, List<String> authors, String description, String publisher, String publishedDate, Integer pageCount, List<String> categories, String image) {
+    public Book(String id, String title, List<String> authors, String status, String description, String publisher, String publishedDate, Integer pageCount, List<String> categories, String image) {
         this.id = id;
         this.title = title;
         this.authors = authors;
@@ -38,6 +40,7 @@ public class Book {
         this.pageCount = pageCount;
         this.categories = categories;
         this.image = image;
+        this.status = status;
     }
 
 
@@ -112,5 +115,13 @@ public class Book {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
