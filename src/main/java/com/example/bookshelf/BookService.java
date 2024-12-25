@@ -16,6 +16,11 @@ public class BookService {
     }
 
     public Book createBook(Book book){
+
+        if (book.getStatus() == null || book.getStatus().isEmpty()) {
+            book.setStatus("reading");
+        }
+
         return bookRepository.save(book);
     }
 
